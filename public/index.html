@@ -6,24 +6,27 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#0f0f0f] text-[#f5f5f5] font-sans flex flex-col items-center px-5 py-10">
-  
+
+  <!-- Header -->
   <header class="text-center mb-8">
-    <h1 class="text-4xl font-semibold tracking-wider text-pink-300">Willkommen bei BellaCare</h1>
+    <h1 class="text-4xl md:text-5xl font-semibold tracking-wider text-[#ffb6c1]">Willkommen bei BellaCare</h1>
   </header>
 
+  <!-- Chatbereich -->
   <div id="chat" class="w-full max-w-xl mb-4 bg-transparent shadow-none rounded-none p-0">
-    <!-- Beispielnachrichten -->
-    <!-- <div class="msg user text-[#80dfff] mb-4 text-base leading-relaxed">Hallo, wie kann ich helfen?</div>
-    <div class="msg bot text-[#b6fcb6] mb-4 text-base leading-relaxed">Willkommen! Wie kann ich Sie unterstützen?</div> -->
+    <!-- Beispiel: -->
+    <!-- <div class="msg text-[#80dfff] mb-4 text-base leading-relaxed">Hallo, ich bin ein Benutzer.</div>
+    <div class="msg text-[#b6fcb6] mb-4 text-base leading-relaxed">Hallo! Ich bin BellaCare. Wie kann ich helfen?</div> -->
   </div>
 
-  <input 
-    type="text" 
-    id="input" 
-    placeholder="Frage stellen..." 
-    class="w-full max-w-xl px-4 py-3 text-base bg-[#2a2a2a] text-[#f5f5f5] rounded-xl shadow-inner placeholder-[#ccc] focus:outline-none focus:bg-[#333]" 
+  <!-- Eingabefeld -->
+  <input
+    type="text"
+    id="input"
+    placeholder="Frage stellen..."
+    class="w-full max-w-xl px-4 py-3 text-base bg-[#2a2a2a] text-[#f5f5f5] rounded-xl shadow-inner placeholder-[#ccc] focus:outline-none focus:bg-[#333]"
   />
-  
+
   <script>
     const input = document.getElementById("input");
     const chat = document.getElementById("chat");
