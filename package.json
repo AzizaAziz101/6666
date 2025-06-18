@@ -1,6 +1,11 @@
 {
   "name": "bella-chatbot",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "Chatbot für das BellaCare Studio",
+  "main": "api/chat.js",
+  "scripts": {
+    "start": "node api/chat.js"
+  },
   "dependencies": {
     "openai": "^4.0.0"
   }

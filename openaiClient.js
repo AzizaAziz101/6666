@@ -1,25 +1,30 @@
-import OpenAI from 'openai';
-import fs from 'fs';
+const OpenAI = require("openai");
+const fs = require("fs");
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
-const leistungen = fs.readFileSync('leistungen.txt', 'utf-8');
+// Optional: Text aus Datei einlesen
+const leistungen = fs.existsSync("leistungen.txt")
+  ? fs.readFileSync("leistungen.txt", "utf-8")
+  : "";
 
-export async function chatHandler(userMessage) {
+async function chatHandler(userMessage) {
   const messages = [
     {
-      role: 'system',
-      content: `Du bist der Assistent vom BellaCare Studio. Beantworte Fragen basierend auf diesen Informationen:\n${leistungen}`
+      role: "system",
+      content: `Du bist der Assistent vom BellaCare Studio. Beantworte Fragen zu Behandlungen. Hier sind Infos:\n\n${leistungen}`,
     },
-    { role: 'user', content: userMessage }
+    { role: "user", content: userMessage },
   ];
 
   const response = await openai.chat.completions.create({
-    model: 'gpt-4o',
-    messages
+    model: "gpt-4o",
+    messages,
   });
 
   return response.choices[0].message.content;
 }
+
+module.exports = { chatHandler };
