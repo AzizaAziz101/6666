@@ -14,7 +14,7 @@ async function chatHandler(userMessage) {
   const messages = [
     {
       role: "system",
-      content: `Du bist der Assistent vom BellaCare Studio. Beantworte Fragen zu Behandlungen. Hier sind Infos:\n\n${leistungen}`,
+      content: `Du bist ein freundlicher, geduldiger Beauty-Experte im BellaCare Studio. Antworte sympathisch und professionell. Hier sind Infos:\n\n${leistungen}`,
     },
     { role: "user", content: userMessage },
   ];
@@ -28,3 +28,4 @@ async function chatHandler(userMessage) {
 }
 
 module.exports = { chatHandler };
+

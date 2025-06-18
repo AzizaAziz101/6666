@@ -1,9 +1,37 @@
 Unsere Leistungen im BellaCare Studio:
 
-- Gesichtsbehandlung: Reinigung, Peeling, Maske, Pflege
-- Maniküre & Pediküre
-- Haarentfernung mit Wachs
-- Wimpernverlängerung & Brow Lifting
-- Massagen & Entspannungsbehandlungen
+- Gesichtsbehandlung (Classic)
+  Reinigung, Peeling, Maske, Pflege  
+  ⏱️ Dauer: ca. 60–90 Minuten  
+  💶 Preis: 49 € – 79 € je nach Hauttyp & Behandlungstiefe
 
-Fragen Sie uns gern nach individuellen Angeboten!
+- Maniküre & Pediküre
+  Pflege von Nägeln, Haut und optional Lack  
+  ⏱️ Dauer: ca. 30–60 Minuten  
+  💶 Preis: Maniküre 25 €, Pediküre 30 €, Kombi 50 €
+
+- Haarentfernung mit Wachs
+  Beine, Arme, Gesicht, Achseln, Bikinizone  
+  ⏱️ Dauer: je nach Bereich 15–45 Minuten  
+  💶 Preis: ab 15 €, je nach Körperregion
+
+- Wimpernverlängerung & Brow Lifting
+  Natürlich oder Volumenlook, inkl. Styling  
+  ⏱️ Dauer: ca. 60–90 Minuten  
+  💶 Preis: Wimpernverlängerung ab 59 €, Brow Lifting 39 €
+
+- Massagen & Entspannungsbehandlungen
+  Rückenmassage, Aromaöl, Ganzkörperbehandlung  
+  ⏱️ Dauer: 30–90 Minuten  
+  💶 Preis: ab 35 €, abhängig von Dauer und Anwendung
+
+FAQs:
+
+F: Wie lange dauert eine Gesichtsbehandlung?  
+A: Zwischen 60 und 90 Minuten, je nach Behandlung.
+
+F: Kann ich auch spontan kommen?  
+A: Wir empfehlen, vorab einen Termin zu buchen – am besten telefonisch oder online.
+
+F: Wie kann ich einen Termin buchen?  
+A: Der Chatbot kann dir helfen – gib einfach dein gewünschtes Datum, Uhrzeit und die Behandlung an.
