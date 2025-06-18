@@ -4,17 +4,91 @@
   <meta charset="UTF-8" />
   <title>BellaCare Chatbot</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; }
-    #chat { max-width: 600px; margin: auto; }
-    .msg { margin-bottom: 10px; }
-    .user { color: blue; }
-    .bot { color: green; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+      color: #ffb6c1;
+      letter-spacing: 1px;
+    }
+
+    #hero {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    #hero img {
+      max-width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(255,182,193,0.3);
+    }
+
+    #chat {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .msg {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .user {
+      color: #80dfff;
+    }
+
+    .bot {
+      color: #90ee90;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background-color: #333;
+      color: #fff;
+      font-size: 1em;
+      margin-top: 10px;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.5);
+    }
+
+    input[type="text"]::placeholder {
+      color: #aaa;
+    }
   </style>
 </head>
 <body>
-  <h1>Willkommen bei BellaCare</h1>
+  <header>
+    <h1>Willkommen bei BellaCare</h1>
+  </header>
+
+  <section id="hero">
+    <!-- Ersetze src durch dein eigenes Bild -->
+    <img src="beauty.jpg" alt="Beauty Hero Bild" />
+  </section>
+
   <div id="chat"></div>
-  <input type="text" id="input" placeholder="Frage stellen..." style="width: 100%;" />
+  <input type="text" id="input" placeholder="Frage stellen..." />
+
   <script>
     const input = document.getElementById("input");
     const chat = document.getElementById("chat");
