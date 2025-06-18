@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>BellaCare Chatbot</title>
+</head>
+<body>
+  <h1>Willkommen bei BellaCare</h1>
+  <div id="chat"></div>
+  <input type="text" id="userInput" placeholder="Frage eingeben..." />
+  <button onclick="sendMessage()">Senden</button>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById('userInput');
+      const chat = document.getElementById('chat');
+      const msg = input.value;
+
+      chat.innerHTML += `<p><b>Du:</b> ${msg}</p>`;
+      input.value = '';
+
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg })
+      });
+
+      const data = await res.json();
+      chat.innerHTML += `<p><b>BellaCare:</b> ${data.reply}</p>`;
+    }
+  </script>
+</body>
+</html>
