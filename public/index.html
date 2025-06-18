@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <title>BellaCare Chatbot</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .user {
+      @apply text-[#80dfff] mb-4 text-base leading-relaxed;
+    }
+    .bot {
+      @apply text-[#b6fcb6] mb-4 text-base leading-relaxed;
+    }
+  </style>
 </head>
 <body class="bg-[#0f0f0f] text-[#f5f5f5] font-sans flex flex-col items-center px-5 py-10">
 
@@ -13,11 +21,7 @@
   </header>
 
   <!-- Chatbereich -->
-  <div id="chat" class="w-full max-w-xl mb-4 bg-transparent shadow-none rounded-none p-0">
-    <!-- Beispiel: -->
-    <!-- <div class="msg text-[#80dfff] mb-4 text-base leading-relaxed">Hallo, ich bin ein Benutzer.</div>
-    <div class="msg text-[#b6fcb6] mb-4 text-base leading-relaxed">Hallo! Ich bin BellaCare. Wie kann ich helfen?</div> -->
-  </div>
+  <div id="chat" class="w-full max-w-xl mb-4 bg-transparent shadow-none rounded-none p-0"></div>
 
   <!-- Eingabefeld -->
   <input
