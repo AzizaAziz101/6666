@@ -4,6 +4,22 @@
   <meta charset="UTF-8" />
   <title>BellaCare Chatbot</title>
   <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+@keyframes fade-in-slow {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-in-slow {
+    animation: fade-in-slow 2.5s ease-out both;
+  }
+</style>
 </head>
 <body class="bg-[#202020] text-[#f5f5f5] font-['Segoe_UI'] relative min-h-screen">
 
