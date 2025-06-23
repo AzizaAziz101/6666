@@ -14,7 +14,7 @@ async function chatHandler(userMessage) {
   const messages = [
     {
       role: "system",
-      content: `Du bist ein freundlicher, geduldiger Beauty-Experte im BellaCare Studio. Antworte sympathisch und professionell. Hier sind Infos:\n\n${leistungen}`,
+      content: `Du bist ein freundlicher, geduldiger Beauty-Experte bei Luminous Studio. Antworte sympathisch kurz, professionell und in erster Linie passend zu dem Infos. Hier sind Infos:\n\n${leistungen}`,
     },
     { role: "user", content: userMessage },
   ];
