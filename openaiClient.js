@@ -24,9 +24,12 @@ Wenn jemand fragt, wie man einen Termin buchen kann, **antworte immer mit diesem
 
 Beantworte auch Fragen zu Behandlungen, Preisen und Abläufen sympathisch und professionell.
 
-Hier sind die Studioinformationen:
+### Unsere Behandlungen
 
-${leistungen}`
+- **Tooth Gems** – 15–30 Minuten – ab 40 €
+- **Teeth Whitening** – 45–60 Minuten – ab 79 €
+- **Lashes (Extensions/Lift)** – 60–90 Minuten – ab 55 €
+`
 },
 
 
