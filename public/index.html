@@ -26,12 +26,12 @@
 
 
   <!-- Header -->
-<header class="bg-[#202020] px-6 py-4 text-sm">
+<header class="bg-[#202020] px-6 py-4 text-base">
   <div class="flex justify-between items-center whitespace-nowrap overflow-x-auto">
     <a href="index.html" class="text-pink-500 font-medium text-lg mr-6">
       Luminous
     </a>
-    <div class="flex items-center gap-6 text-pink-500 font-medium text-sm">
+    <div class="flex items-center gap-6 text-pink-500 font-medium text-base">
       <a href="tel:+49 345 00000" class="flex items-center gap-2">
         <span class="text-base">Call us:</span>
         <span class="text-sm">+49 300 00000</span>
@@ -216,7 +216,7 @@
         });
         const data = await res.json();
         const htmlReply = marked.parse(data.reply);  // 👈 hier wird Markdown gerendert
-        chat.innerHTML += `<div class="msg bot text-[#b6fcb6] mb-4 leading-relaxed text-base">${htmlReply}</div>`;
+        chat.innerHTML += `<div class="msg bot text-[#b6fcb6] mb-4 leading-relaxed text-base">Bot: ${htmlReply}</div>`;
 
         chat.scrollTop = chat.scrollHeight;
       }
