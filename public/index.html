@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>BellaCare Chatbot</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
 @keyframes fade-in-slow {
     0% {
@@ -214,7 +215,8 @@
           body: JSON.stringify({ message }),
         });
         const data = await res.json();
-        chat.innerHTML += `<div class="msg bot text-[#b6fcb6] mb-4 leading-relaxed text-base">Bot: ${data.reply}</div>`;
+        const htmlReply = marked.parse(data.reply);  // 👈 hier wird Markdown gerendert
+        chat.innerHTML += `<div class="msg bot text-[#b6fcb6] mb-4 leading-relaxed text-base">Bot: ${htmlReply}</div>`;
         chat.scrollTop = chat.scrollHeight;
       }
     });
