@@ -216,7 +216,8 @@
         });
         const data = await res.json();
         const htmlReply = marked.parse(data.reply);  // 👈 hier wird Markdown gerendert
-        chat.innerHTML += `<div class="msg bot text-[#b6fcb6] mb-4 leading-relaxed text-base">Bot: ${htmlReply}</div>`;
+        chat.innerHTML += `<div class="msg bot text-[#b6fcb6] mb-4 leading-relaxed text-base">${htmlReply}</div>`;
+
         chat.scrollTop = chat.scrollHeight;
       }
     });
