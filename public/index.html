@@ -1,69 +1,30 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BellaCare Chatbot</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <style>
-@keyframes fade-in-slow {
-    0% {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  .animate-fade-in-slow {
-    animation: fade-in-slow 2.5s ease-out both;
-  }
-
-  /* Tippen-Animation */
-.typing {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-right: 2px;
-  background-color: #b6fcb6;
-  border-radius: 50%;
-  animation: blink 1.4s infinite both;
-}
-.typing:nth-child(2) { animation-delay: 0.2s; }
-.typing:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes blink {
-  0%, 80%, 100% { opacity: 0; transform: scale(0.8); }
-  40% { opacity: 1; transform: scale(1); }
-}
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BellaCare Chatbot</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+@keyframes fade-in-slow { 0% { opacity: 0; transform: scale(0.95); } 100% { opacity: 1; transform: scale(1); } }
+.animate-fade-in-slow { animation: fade-in-slow 2.5s ease-out both; }
+.typing { display: inline-block; width: 0.5rem; height: 0.5rem; margin-right: 0.125rem; background-color: #22c55e; border-radius: 50%; animation: blink 1.4s infinite both; }
+@keyframes blink { 0%, 80%, 100% { opacity: 0; transform: scale(0.8); } 40% { opacity: 1; transform: scale(1); } }
 </style>
 </head>
-<body class="bg-[#202020] text-[#f5f5f5] font-['Segoe_UI'] relative min-h-screen">
+<body class="bg-[#202020] text-[#f5f5f5] font-sans relative min-h-screen">
 
-
-  <!-- Header -->
-<header class="bg-[#202020] px-6 py-4 text-base">
-  <div class="flex justify-between items-center whitespace-nowrap overflow-x-auto">
-    <a href="index.html" class="text-pink-500 font-medium text-lg mr-6">
-      Novaa Nails
-    </a>
-    <div class="flex items-center gap-6 text-pink-500 font-medium text-base">
-      <a href="tel:+49 345 00000" class="flex items-center gap-2">
-        <span class="text-base">Call us:</span>
-        <span class="text-sm">+49 300 00000</span>
-      </a>
-    </div>
-  </div>
+<!-- Header -->
+<header class="bg-[#202020] px-6 py-4 text-base flex justify-between items-center">
+  <a href="index.html" class="text-pink-500 font-medium text-lg">Novaa Nails</a>
+  <a href="tel:+4934500000" class="flex items-center gap-2 text-pink-500 font-medium text-base">
+    <span>Call us:</span> <span class="text-sm">+49 300 00000</span>
+  </a>
 </header>
 
 <!-- Promo-Banner -->
-<div class="text-center text-sm px-6 py-1.5 font-bold" style="background-color: #14b8a6">
-  New customer special – get 5% off your first order
-</div>
+<div class="bg-teal-500 text-center text-sm font-bold py-1.5">New customer special – get 5% off your first order</div>
 
 <!-- Hauptbereich -->
 <main class="bg-[#202020] mx-auto px-4 py-8">
@@ -71,262 +32,112 @@
     <h1 class="text-2xl font-bold mb-4">Teeth Gems & Lashes – Shine Bright Every Day</h1>
     <h2 class="text-pink-500 text-2xl font-bold mb-6">Novaa Nails</h2>
   </div>
-
-<div class="mb-10 max-w-5xl mx-auto px-4">
-  <img
-    src="beauty929.jpg"
-    alt="Beautiful scene"
-    class="w-full rounded-3xl shadow-xl animate-fade-in-slow"
-  />
-</div>
-
-
-
-
-
-
-
-<div class="mx-auto px-6 md:px-16 py-6">
-  <p class="mb-8 leading-relaxed font-semibold">
-    At Novaa Nails, we enhance your natural beauty with expert services in tooth gems, whitening, and lash styling — all delivered with precision and care.
-  </p>
-  <p class="mb-10 leading-relaxed font-semibold">
-    We’re passionate about helping you feel confident and radiant, using high-quality materials and safe, trend-forward techniques.
-  </p>
-
-  <h3 class="text-2xl font-bold mb-6">Why Novaa Nails?</h3>
-  <p class="mb-10 leading-relaxed font-semibold">
-    Our mission is to boost your confidence through modern beauty treatments tailored to your unique style. Whether you're adding a sparkling tooth gem, brightening your smile, or enhancing your lashes, we create results that stand out.
-  </p>
-  <p class="mb-12 leading-relaxed font-semibold">
-    At Novaa Nails, we combine expertise with artistry, offering flexible appointments, gentle products, and a comfortable experience every time. Your glow-up starts here.
-  </p>
-</div>
-
-<!-- Tabelle -->
-<div class="overflow-x-auto max-w-3xl mx-auto text-gray-800 text-lg">
-  <table class="w-full table-auto border-2 border-blue-200 rounded-2xl bg-white shadow-sm" style="border-collapse: separate;">
-    <thead class="bg-blue-100">
-      <tr>
-        <th class="px-3 py-2 md:px-5 md:py-4 text-left font-bold border-b border-blue-200 rounded-tl-2xl text-sm md:text-lg">Service</th>
-        <th class="px-3 py-2 md:px-5 md:py-4 text-left font-bold border-b border-blue-200 text-sm md:text-lg">Time</th>
-        <th class="px-3 py-2 md:px-5 md:py-4 text-left font-bold border-b border-blue-200 rounded-tr-2xl text-sm md:text-lg">Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="px-3 py-2 md:px-5 md:py-4 font-medium text-sm md:text-lg">Tooth Gems</td>
-        <td class="px-3 py-2 md:px-5 md:py-4 font-medium text-sm md:text-lg">15–30 mins</td>
-        <td class="px-3 py-2 md:px-5 md:py-4 font-medium text-sm md:text-lg">From €40</td>
-      </tr>
-      <tr>
-        <td class="px-3 py-2 md:px-5 md:py-4 font-medium text-sm md:text-lg">Teeth Whitening</td>
-        <td class="px-3 py-2 md:px-5 md:py-4 font-medium text-sm md:text-lg">45–60 mins</td>
-        <td class="px-3 py-2 md:px-5 md:py-4 font-medium text-sm md:text-lg">From €79</td>
-      </tr>
-      <tr>
-        <td class="px-3 py-2 md:px-5 md:py-4 font-medium rounded-bl-2xl text-sm md:text-lg">Lashes (Extensions/Lift)</td>
-        <td class="px-3 py-2 md:px-5 md:py-4 font-medium text-sm md:text-lg">60–90 mins</td>
-        <td class="px-3 py-2 md:px-5 md:py-4 font-medium rounded-br-2xl text-sm md:text-lg">From €55</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<br>
-
-
-
-
+  <div class="mb-10 max-w-5xl mx-auto px-4">
+    <img src="beauty929.jpg" alt="Beautiful scene" class="w-full rounded-3xl shadow-xl animate-fade-in-slow">
+  </div>
+  <div class="mx-auto px-6 md:px-16 py-6 text-gray-100 font-semibold">
+    <h3 class="text-2xl font-bold mb-6">Why Novaa Nails?</h3>
+    <p class="mb-10 leading-relaxed">Our mission is to boost your confidence through modern beauty treatments tailored to your unique style. Whether you're adding a sparkling tooth gem, brightening your smile, or enhancing your lashes, we create results that stand out.</p>
+    <p class="mb-12 leading-relaxed">At Novaa Nails, we combine expertise with artistry, offering flexible appointments, gentle products, and a comfortable experience every time. Your glow-up starts here.</p>
+  </div>
 </main>
 
-<!-- Engagement-Bereich mit hellblauem Vollbild-Hintergrund ohne äußeres Padding -->
-<section class="bg-[#202020] py-7">
-  <div class="w-full max-w-3xl mx-auto px-4">
-    <h2 class="text-2xl font-semibold text-gray-200 mb-4 text-center">Our Commitment to Beauty</h2>
-    <p class="font-semibold text-gray-500 mb-4 text-center">
-      At Novaa Nails, you are our priority. We believe that beauty boosts confidence and enhances your everyday life.
-    </p>
-    <p class="font-semibold text-gray-500 text-center">
-      With our reliable team and modern treatments, we deliver stunning, hygienic results – professionally, consciously, and with a touch of glam.
-    </p>
-  </div>
-</section>
-
-
-  <div class="bg- py-5 mb-20 min-h-[425px] relative max-w-xs w-full mx-auto h-auto">
-    <!-- Unteres Bild -->
-    <img
-      src="firstclassNails.jpg"
-      alt="Image Shadow"
-      class="rounded-2xl w-full h-[300px] object-cover
-             block mb-4 md:absolute md:top-20 md:left-32 md:mb-0"
-    />
-    <!-- Oberes Bild -->
-    <img
-      src="mirrorNails.jpg"
-      alt="Main Image"
-      class="rounded-2xl w-full h-[300px] object-cover z-10
-             block md:relative md:-left-32"
-    />
-  </div>
-
-<div class="bg-[#202020] font-semibold text-center text-[#B98B85] px-4" style="margin-top: 20px; padding-top: 0px; padding-bottom: 4px;">
-  <p style="margin-bottom: 2px;">
-    Because your hands deserve more than just color – they deserve care, elegance, and a little everyday magic.
-  </p>
-</div>
-
-
-<!-- Modal -->
+<!-- Chat Modal -->
 <div id="chatModal" class="fixed inset-0 bg-black/70 flex justify-center items-center z-50 hidden">
-  <div class="bg-[#0f0f0f] w-full max-w-[650px] rounded-2xl shadow-2xl p-6 relative flex flex-col">
-    <!-- Close Button -->
+  <div id="chatContainer" class="bg-[#0f0f0f] w-[650px] h-[400px] rounded-2xl shadow-2xl p-6 flex flex-col relative">
     <button id="closeChat" class="absolute top-3 right-4 text-[#ccc] text-2xl font-bold hover:text-white">&times;</button>
-
-    <!-- Chat Header -->
     <header class="text-center mb-4">
       <h1 class="text-[1.7rem] text-cyan-500 font-semibold tracking-wider">Willkommen bei Luminous</h1>
     </header>
-
-    <!-- Chat Messages -->
-    <div id="chat" class="w-full max-w-[600px] mb-4 bg-[#1a1a1a] p-4 rounded-2xl overflow-y-auto max-h-[300px] flex-col gap-3"></div>
-
-
-    <!-- Input Area -->
-    <div class="w-full flex gap-2">
-      <input type="text" id="input"
-             placeholder="Frage stellen..."
-             class="flex-1 px-4 py-3 text-base bg-[#2a2a2a] text-[#f5f5f5] rounded-2xl border-none shadow-inner shadow-black/60 placeholder:text-[#ccc] focus:outline-none focus:bg-[#333]" />
+    <div id="chat" class="flex-1 mb-4 bg-[#1a1a1a] p-4 rounded-2xl overflow-y-auto flex flex-col gap-3"></div>
+    <div class="flex gap-2 mt-auto">
+      <input type="text" id="input" placeholder="Frage stellen..." class="flex-1 px-4 py-3 text-base bg-[#2a2a2a] text-[#f5f5f5] rounded-2xl border-none shadow-inner placeholder:text-gray-400 focus:outline-none focus:bg-[#333]">
       <button id="sendBtn" class="bg-cyan-500 hover:bg-cyan-400 text-[#0f0f0f] px-4 py-3 rounded-2xl font-semibold shadow-lg transition">Senden</button>
     </div>
+    <!-- Resize Button nach oben verschieben -->
+<button id="resizeChat" class="absolute top-5 right-12 bg-cyan-500 text-[#0f0f0f] px-2 py-1 text-xs rounded-sm shadow-sm hover:bg-cyan-400 transition">
+  Vergrößern
+</button>
+
   </div>
 </div>
 
-    <!-- Chat öffnen Button -->
-  <button id="openChat"
-    class="fixed bottom-6 right-6 bg-cyan-500 text-[#0f0f0f] px-5 py-3 rounded-full text-sm font-semibold shadow-lg hover:bg-cyan-400 transition">
-    Chat öffnen...
-  </button>
+<button id="openChat" class="fixed bottom-6 right-6 bg-cyan-500 text-[#0f0f0f] px-5 py-3 rounded-full text-sm font-semibold shadow-lg hover:bg-cyan-400 transition"> Chat öffnen... </button>
 
-  <!-- Stylish Footer for Luminous -->
-<footer class="bg-[#14b8a6] mt-16 text-sm text-white py-6">
-  <div class="max-w-5xl mx-auto px-6 text-center space-y-4">
-    <p class="text-base font-semibold text-gray-800">
-      &copy; 2025 Novaa Nails – Radiant clean. Sustainably maintained.
-    </p>
-
-    <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-blue-600 font-medium">
-      <a href="Impressum.html" class="hover:underline transition-colors duration-200">Imprint</a>
-      <a href="/contact" class="hover:underline transition-colors duration-200">Contact</a>
-      <a href="/privacy-policy" class="hover:underline transition-colors duration-200">Privacy Policy</a>
-    </div>
-  </div>
-</footer>
-
-  <!-- Original Script (nicht verändert) -->
-  <script>
-
-
-// ==========================
-// Elemente
-// ==========================
+<script>
 const input = document.getElementById("input");
 const chat = document.getElementById("chat");
 const sendBtn = document.getElementById("sendBtn");
-
 const openBtn = document.getElementById("openChat");
 const closeBtn = document.getElementById("closeChat");
 const modal = document.getElementById("chatModal");
+const chatContainer = document.getElementById("chatContainer");
+const resizeBtn = document.getElementById("resizeChat");
 
-// ==========================
-// Modal Handling & Scroll
-// ==========================
-openBtn.addEventListener("click", () => {
-  modal.classList.remove("hidden");
-  document.body.classList.add("overflow-hidden"); // Scroll sperren
+// Modal öffnen/schließen
+openBtn.addEventListener("click", () => { 
+  modal.classList.remove("hidden"); 
+  document.body.classList.add("overflow-hidden"); 
 });
-
-closeBtn.addEventListener("click", () => {
-  modal.classList.add("hidden");
-  document.body.classList.remove("overflow-hidden"); // Scroll erlauben
+closeBtn.addEventListener("click", () => { 
+  modal.classList.add("hidden"); 
+  document.body.classList.remove("overflow-hidden"); 
 });
-
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.classList.add("hidden");
-    document.body.classList.remove("overflow-hidden"); // Scroll erlauben
+window.addEventListener("click", (e) => { 
+  if(e.target===modal){ 
+    modal.classList.add("hidden"); 
+    document.body.classList.remove("overflow-hidden"); 
   }
 });
 
-
-
-async function sendMessage() {
+// Nachrichten senden
+async function sendMessage(){
   const message = input.value.trim();
-  if (!message) return;
-
-  // -------------------------
-  // Nutzer-Nachricht anzeigen
-  // -------------------------
-const userMsg = document.createElement("div");
-userMsg.className = "msg user bg-[#1a1a1a] text-[#b6fcb6] p-3 rounded-2xl self-end max-w-[80%] opacity-0 break-words";
-userMsg.textContent = message;
-chat.appendChild(userMsg);
-
-
-  // Fade-in Animation
-  setTimeout(() => userMsg.classList.add("animate-fade-in-slow"), 10);
+  if(!message) return;
+  const userMsg = document.createElement("div");
+  userMsg.className="msg user bg-[#1a1a1a] text-green-400 p-3 rounded-2xl self-end max-w-[80%] opacity-0 break-words";
+  userMsg.textContent = message;
+  chat.appendChild(userMsg);
+  setTimeout(()=>userMsg.classList.add("animate-fade-in-slow"),10);
   chat.scrollTop = chat.scrollHeight;
-
-  input.value = "";
-
-  // -------------------------
-  // Bot Typing Animation
-  // -------------------------
+  input.value="";
+  
   const typingEl = document.createElement("div");
-  typingEl.className = "msg bot bg-[#1a1a1a] p-3 rounded-2xl max-w-[80%] break-words opacity-0";
-
-  // Separater Container für die Punkte
-  const typingPoints = document.createElement("div");
-  typingPoints.className = "flex gap-1 mt-1";
-  typingPoints.innerHTML = `<span class="typing"></span><span class="typing"></span><span class="typing"></span>`;
-
-  typingEl.appendChild(typingPoints);
+  typingEl.className="msg bot bg-[#1a1a1a] p-3 rounded-2xl max-w-[80%] break-words opacity-0 flex gap-1 mt-1";
+  typingEl.innerHTML='<span class="typing"></span><span class="typing"></span><span class="typing"></span>';
   chat.appendChild(typingEl);
-  setTimeout(() => typingEl.classList.add("animate-fade-in-slow"), 10);
+  setTimeout(()=>typingEl.classList.add("animate-fade-in-slow"),10);
   chat.scrollTop = chat.scrollHeight;
 
-  // -------------------------
-  // Server Request
-  // -------------------------
   try {
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message }),
-    });
+    const res = await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message})});
     const data = await res.json();
-    const htmlReply = marked.parse(data.reply);
-
-    // Typing-Punkte durch echte Antwort ersetzen
-    typingEl.innerHTML = htmlReply;
+    typingEl.innerHTML = marked.parse(data.reply);
     chat.scrollTop = chat.scrollHeight;
-  } catch (err) {
-    typingEl.innerHTML = "Fehler beim Laden der Antwort.";
-    console.error(err);
-  }
+  } catch(err){ typingEl.innerHTML="Fehler beim Laden der Antwort."; console.error(err);}
 }
 
-// -------------------------
-// Enter-Taste und Button
-// -------------------------
-input.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") sendMessage();
+input.addEventListener("keypress",(e)=>{ if(e.key==="Enter") sendMessage(); });
+sendBtn.addEventListener("click",sendMessage);
+
+// Feste Größen definieren
+const normalSize = { width: 650, height: 400 };
+const largeSize = { width: 900, height: 600 };
+let isLarge = false;
+
+resizeBtn.addEventListener("click", () => {
+  if(!isLarge){
+    chatContainer.style.width = largeSize.width + "px";
+    chatContainer.style.height = largeSize.height + "px";
+    resizeBtn.textContent = "Verkleinern";
+    isLarge = true;
+  } else {
+    chatContainer.style.width = normalSize.width + "px";
+    chatContainer.style.height = normalSize.height + "px";
+    resizeBtn.textContent = "Vergrößern";
+    isLarge = false;
+  }
 });
-
-sendBtn.addEventListener("click", sendMessage);
-
-
-
-  </script>
+</script>
 </body>
 </html>
