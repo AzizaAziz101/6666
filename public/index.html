@@ -257,16 +257,17 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// ==========================
-// Funktion zum Senden von Nachrichten
-// ==========================
+
+
 async function sendMessage() {
   const message = input.value.trim();
   if (!message) return;
 
+  // -------------------------
   // Nutzer-Nachricht anzeigen
+  // -------------------------
   const userMsg = document.createElement("div");
-  userMsg.className = "msg user bg-[#2a2a2a] text-[#80dfff] p-3 rounded-2xl self-end max-w-[80%] opacity-0";
+  userMsg.className = "msg user bg-[#2a2a2a] text-[#80dfff] p-3 rounded-2xl self-end max-w-[80%] opacity-0 break-words";
   userMsg.textContent = message;
   chat.appendChild(userMsg);
 
@@ -276,14 +277,25 @@ async function sendMessage() {
 
   input.value = "";
 
+  // -------------------------
   // Bot Typing Animation
+  // -------------------------
   const typingEl = document.createElement("div");
-  typingEl.className = "msg bot bg-[#1a1a1a] p-3 rounded-2xl max-w-[80%] flex gap-1";
-  typingEl.innerHTML = `<span class="typing"></span><span class="typing"></span><span class="typing"></span>`;
+  typingEl.className = "msg bot bg-[#1a1a1a] p-3 rounded-2xl max-w-[80%] break-words opacity-0";
+
+  // Separater Container für die Punkte
+  const typingPoints = document.createElement("div");
+  typingPoints.className = "flex gap-1 mt-1";
+  typingPoints.innerHTML = `<span class="typing"></span><span class="typing"></span><span class="typing"></span>`;
+
+  typingEl.appendChild(typingPoints);
   chat.appendChild(typingEl);
+  setTimeout(() => typingEl.classList.add("animate-fade-in-slow"), 10);
   chat.scrollTop = chat.scrollHeight;
 
+  // -------------------------
   // Server Request
+  // -------------------------
   try {
     const res = await fetch("/api/chat", {
       method: "POST",
@@ -293,25 +305,24 @@ async function sendMessage() {
     const data = await res.json();
     const htmlReply = marked.parse(data.reply);
 
-    // Antwort ersetzen
+    // Typing-Punkte durch echte Antwort ersetzen
     typingEl.innerHTML = htmlReply;
-    typingEl.classList.add("animate-fade-in-slow");
     chat.scrollTop = chat.scrollHeight;
   } catch (err) {
     typingEl.innerHTML = "Fehler beim Laden der Antwort.";
-    typingEl.classList.add("animate-fade-in-slow");
     console.error(err);
   }
 }
 
-// ==========================
+// -------------------------
 // Enter-Taste und Button
-// ==========================
+// -------------------------
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") sendMessage();
 });
 
 sendBtn.addEventListener("click", sendMessage);
+
 
 
   </script>
