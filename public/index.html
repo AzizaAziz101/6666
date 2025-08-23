@@ -96,21 +96,28 @@ const modal = document.getElementById("chatModal");
 const chatContainer = document.getElementById("chatContainer");
 const resizeBtn = document.getElementById("resizeChat");
 
-// Modal öffnen/schließen
+// Modal öffnen
 openBtn.addEventListener("click", () => { 
   modal.classList.remove("hidden"); 
   document.body.classList.add("overflow-hidden"); 
+  openBtn.classList.add("hidden"); // Button ausblenden
 });
+
+// Modal schließen
 closeBtn.addEventListener("click", () => { 
   modal.classList.add("hidden"); 
   document.body.classList.remove("overflow-hidden"); 
+  openBtn.classList.remove("hidden"); // Button wieder einblenden
 });
+
 window.addEventListener("click", (e) => { 
-  if(e.target===modal){ 
+  if(e.target === modal){ 
     modal.classList.add("hidden"); 
     document.body.classList.remove("overflow-hidden"); 
+    openBtn.classList.remove("hidden"); // Button wieder einblenden
   }
 });
+
 
 // Nachrichten senden
 async function sendMessage(){
