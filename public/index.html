@@ -267,10 +267,11 @@ async function sendMessage() {
   // -------------------------
   // Nutzer-Nachricht anzeigen
   // -------------------------
-  const userMsg = document.createElement("div");
-  userMsg.className = "msg user bg-[#2a2a2a] text-[#80dfff] p-3 rounded-2xl self-end max-w-[80%] opacity-0 break-words";
-  userMsg.textContent = message;
-  chat.appendChild(userMsg);
+const userMsg = document.createElement("div");
+userMsg.className = "msg user bg-[#1a1a1a] text-[#b6fcb6] p-3 rounded-2xl self-end max-w-[80%] opacity-0 break-words";
+userMsg.textContent = message;
+chat.appendChild(userMsg);
+
 
   // Fade-in Animation
   setTimeout(() => userMsg.classList.add("animate-fade-in-slow"), 10);
