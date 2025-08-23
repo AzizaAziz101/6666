@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BellaCare Chatbot</title>
+<title>Clarityhub Chatbot</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <style>
@@ -17,26 +17,25 @@
 
 <!-- Header -->
 <header class="bg-[#202020] px-6 py-4 text-base flex justify-between items-center">
-  <a href="index.html" class="text-pink-500 font-medium text-lg">Novaa Nails</a>
+  <a href="index.html" class="text-pink-500 font-medium text-lg">Clarityhub</a>
   <a href="tel:+4934500000" class="flex items-center gap-2 text-pink-500 font-medium text-base">
     <span>Call us:</span> <span class="text-sm">+49 300 00000</span>
   </a>
 </header>
 
-
 <!-- Hauptbereich -->
 <main class="bg-[#202020] mx-auto px-4 py-8">
   <div class="text-center mb-10">
-    <h1 class="text-2xl font-bold mb-4">Teeth Gems & Lashes – Shine Bright Every Day</h1>
-    <h2 class="text-pink-500 text-2xl font-bold mb-6">Novaa Nails</h2>
+    <h1 class="text-2xl font-bold mb-4">Psychologische Beratung & Coaching</h1>
+    <h2 class="text-pink-500 text-2xl font-bold mb-6">Clarityhub</h2>
   </div>
   <div class="mb-10 max-w-5xl mx-auto px-4">
-    <img src="beauty929.jpg" alt="Beautiful scene" class="w-full rounded-3xl shadow-xl animate-fade-in-slow">
+    <img src="beauty929.jpg" alt="Calm and clarity" class="w-full rounded-3xl shadow-xl animate-fade-n-slow">
   </div>
   <div class="mx-auto px-6 md:px-16 py-6 text-gray-100 font-semibold">
-    <h3 class="text-2xl font-bold mb-6">Why Novaa Nails?</h3>
-    <p class="mb-10 leading-relaxed">Our mission is to boost your confidence through modern beauty treatments tailored to your unique style. Whether you're adding a sparkling tooth gem, brightening your smile, or enhancing your lashes, we create results that stand out.</p>
-    <p class="mb-12 leading-relaxed">At Novaa Nails, we combine expertise with artistry, offering flexible appointments, gentle products, and a comfortable experience every time. Your glow-up starts here.</p>
+    <h3 class="text-2xl font-bold mb-6">Warum Clarityhub?</h3>
+    <p class="mb-10 leading-relaxed">Unsere Mission ist es, Menschen zu mentaler Klarheit und emotionalem Wohlbefinden zu verhelfen. Ob individuelle Beratung, Coaching oder Stressbewältigung – wir unterstützen dich dabei, deine Ziele zu erreichen und innere Balance zu finden.</p>
+    <p class="mb-12 leading-relaxed">Bei Clarityhub verbinden wir wissenschaftliche Expertise mit empathischem Ansatz, bieten flexible Termine, sichere Online-Sitzungen und eine vertrauensvolle Umgebung. Dein Weg zu mentaler Klarheit beginnt hier.</p>
   </div>
 </main>
 
@@ -45,25 +44,20 @@
   <div id="chatContainer" class="bg-[#0f0f0f] w-[650px] h-[400px] rounded-2xl shadow-2xl p-6 flex flex-col relative">
     <button id="closeChat" class="absolute top-3 right-4 text-[#ccc] text-2xl font-bold hover:text-white">&times;</button>
     <header class="text-center mb-4">
-      <h1 class="text-[1.7rem] text-cyan-500 font-semibold tracking-wider">Tanim.com</h1>
+      <h1 class="text-[1.7rem] text-cyan-500 font-semibold tracking-wider">Chat</h1>
     </header>
     <div id="chat" class="flex-1 mb-4 bg-[#1a1a1a] p-4 rounded-2xl overflow-y-auto flex flex-col gap-3"></div>
     <div class="flex gap-2 mt-auto">
-      <input type="text" id="input" placeholder="Frage stellen..." class="flex-1 px-4 py-3 text-base bg-[#2a2a2a] text-[#f5f5f5] rounded-2xl border-none shadow-inner placeholder:text-gray-400 focus:outline-none focus:bg-[#333]">
+      <input type="text" id="input" placeholder="Stelle deine Frage..." class="flex-1 px-4 py-3 text-base bg-[#2a2a2a] text-[#f5f5f5] rounded-2xl border-none shadow-inner placeholder:text-gray-400 focus:outline-none focus:bg-[#333]">
       <button id="sendBtn" class="bg-cyan-500 hover:bg-cyan-400 text-[#0f0f0f] px-4 py-3 rounded-2xl font-semibold shadow-lg transition">Senden</button>
     </div>
-    <!-- Resize Button nach oben verschieben -->
-<button id="resizeChat" class="absolute top-5 right-12 bg-cyan-500 text-[#0f0f0f] px-2 py-1 text-xs rounded-sm shadow-sm hover:bg-cyan-400 transition">
-  Vergrößern
-</button>
-
+    <button id="resizeChat" class="absolute top-5 right-12 bg-cyan-500 text-[#0f0f0f] px-2 py-1 text-xs rounded-sm shadow-sm hover:bg-cyan-400 transition">
+      Vergrößern
+    </button>
   </div>
 </div>
 
 <button id="openChat" class="fixed bottom-6 right-6 bg-cyan-500 text-[#0f0f0f] px-5 py-3 rounded-full text-sm font-semibold shadow-lg hover:bg-cyan-400 transition"> Chat öffnen... </button>
-
-
-
 
 <script>
 const input = document.getElementById("input");
