@@ -92,46 +92,33 @@ window.addEventListener("click", (e) => {
 async function sendMessage(){
   const message = input.value.trim();
   if(!message) return;
-
-  // User-Nachricht
   const userMsg = document.createElement("div");
-  userMsg.className = "msg user bg-[#1a1a1a] text-green-400 p-3 rounded-2xl self-end max-w-[80%] opacity-0 break-words";
+  userMsg.className="msg user bg-[#1a1a1a] text-green-400 p-3 rounded-2xl self-end max-w-[80%] opacity-0 break-words";
   userMsg.textContent = message;
   chat.appendChild(userMsg);
-  setTimeout(() => userMsg.classList.add("animate-fade-in-slow"), 10);
+  setTimeout(()=>userMsg.classList.add("animate-fade-in-slow"),10);
   chat.scrollTop = chat.scrollHeight;
-  input.value = "";
-
-  // Bot Typing-Animation
+  input.value="";
+  
   const typingEl = document.createElement("div");
-  typingEl.className = "msg bot bg-[#1a1a1a] p-3 rounded-2xl max-w-[80%] break-words opacity-0 flex flex-col gap-1 mt-1";
-  typingEl.innerHTML = '<div class="flex gap-1"><span class="typing"></span><span class="typing"></span><span class="typing"></span></div>';
+  typingEl.className="msg bot bg-[#1a1a1a] p-3 rounded-2xl max-w-[80%] break-words opacity-0 flex gap-1 mt-1";
+  typingEl.innerHTML='<span class="typing"></span><span class="typing"></span><span class="typing"></span>';
   chat.appendChild(typingEl);
-  setTimeout(() => typingEl.classList.add("animate-fade-in-slow"), 10);
+  setTimeout(()=>typingEl.classList.add("animate-fade-in-slow"),10);
   chat.scrollTop = chat.scrollHeight;
 
   try {
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ message })
-    });
+    const res = await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message})});
     const data = await res.json();
     typingEl.innerHTML = marked.parse(data.reply);
     chat.scrollTop = chat.scrollHeight;
-  } catch(err) {
-    typingEl.innerHTML = "Fehler beim Laden der Antwort.";
-    console.error(err);
-  }
+  } catch(err){ typingEl.innerHTML="Fehler beim Laden der Antwort."; console.error(err);}
 }
 
-// Enter-Taste senden
-input.addEventListener("keypress", (e) => {
-  if(e.key === "Enter") sendMessage();
-});
-sendBtn.addEventListener("click", sendMessage);
+input.addEventListener("keypress",(e)=>{ if(e.key==="Enter") sendMessage(); });
+sendBtn.addEventListener("click",sendMessage);
 
-// Chat Größe ändern
+// Feste Größen definieren
 const normalSize = { width: 650, height: 400 };
 const largeSize = { width: 900, height: 600 };
 let isLarge = false;
@@ -150,6 +137,6 @@ resizeBtn.addEventListener("click", () => {
   }
 });
 </script>
-
 </body>
 </html>
+  
