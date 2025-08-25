@@ -147,24 +147,9 @@ async function sendMessage(){
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({ message })
     });
-  
-
     const data = await res.json();
-
-if(data.type === "PII"){
-  // Zeige den Hinweis direkt im Chat
-  typingEl.innerHTML = `<span class="text-yellow-400 font-semibold">${data.message}</span>`;
-} else if(data.reply){
-  typingEl.innerHTML = marked.parse(data.reply);
-} else if(data.error){
-  typingEl.innerHTML = "Fehler beim Laden der Antwort.";
-}
-
-chat.scrollTop = chat.scrollHeight;
-
-
-
-
+    typingEl.innerHTML = marked.parse(data.reply);
+    chat.scrollTop = chat.scrollHeight;
   } catch(err) {
     typingEl.innerHTML = "Fehler beim Laden der Antwort.";
     console.error(err);
