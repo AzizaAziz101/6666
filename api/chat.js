@@ -56,7 +56,7 @@ module.exports = async function handler(req, res) {
       if (!validateInput(data.message)) {
         return res.status(400).json({
           type: "PII",
-          message: "⚠️ Bitte geben Sie keine personenbezogenen Daten (Namen, E-Mail, Telefonnummer, Adresse usw.) ein!"
+          message: "Bitte geben Sie keine personenbezogenen Daten (Namen, E-Mail, Telefonnummer, Adresse usw.) ein!"
         });
       }
       // ====================
