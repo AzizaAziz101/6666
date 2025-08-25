@@ -21,7 +21,7 @@ function validateInput(text) {
   const sensitiveKeywords = [
     "passwort", "geburtsdatum", "sozialversicherungsnummer",
     "patient", "krankheit", "medizinisch", "religion", "sexualität",
-    "ethnie", "adresse", "iban", "name", "heiße",
+    "ethnie", "adresse", "iban", "name", "heiße"
   ];
 
   if (
