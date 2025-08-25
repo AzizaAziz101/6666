@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX.EU Agency</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="antialiased bg-gray-100 text-gray-900">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <h1 class="text-2xl font-bold">UX.EU</h1>
+            <nav class="space-x-4">
+                <a href="#about" class="hover:text-blue-500">Über uns</a>
+                <a href="#services" class="hover:text-blue-500">Leistungen</a>
+                <a href="#contact" class="hover:text-blue-500">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-10">
+        <section id="hero" class="text-center py-20 px-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+            <h2 class="text-4xl font-semibold">Innovative UX-Lösungen für Ihr Unternehmen</h2>
+            <p class="mt-4">Wir gestalten digitale Erlebnisse, die Ihre Kunden begeistern.</p>
+        </section>
+
+        <section id="about" class="mt-16 px-4">
+            <h2 class="text-3xl font-semibold text-center">Über uns</h2>
+            <p class="mt-4 text-center max-w-xl mx-auto text-gray-700">
+                UX.EU ist eine führende Agentur für User Experience Design. Wir arbeiten eng mit unseren Kunden zusammen, um maßgeschneiderte digitale Erlebnisse zu entwickeln.
+            </p>
+        </section>
+
+        <section id="services" class="mt-16 px-4">
+            <h2 class="text-3xl font-semibold text-center">Unsere Leistungen</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Research & Strategie</h3>
+                    <p class="text-gray-600">Wir analysieren Nutzerverhalten und entwickeln Strategien, um Ihre Geschäftsziele zu erreichen.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Design & Prototyping</h3>
+                    <p class="text-gray-600">Kreatives Design, das Benutzer anspricht und Ihre Markenidentität unterstützt.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Testing & Optimierung</h3>
+                    <p class="text-gray-600">Kontinuierliches Testing zur Leistungsverbesserung Ihrer digitalen Produkte.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="mt-16 px-4 py-12 bg-white">
+            <h2 class="text-3xl font-semibold text-center">Kontakt</h2>
+            <form action="#" method="POST" class="max-w-lg mx-auto mt-8 space-y-4">
+                <div>
+                    <label for="name" class="block text-gray-600">Name</label>
+                    <input type="text" id="name" name="name" class="w-full mt-1 p-2 border border-gray-300 rounded-md">
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-600">E-Mail</label>
+                    <input type="email" id="email" name="email" class="w-full mt-1 p-2 border border-gray-300 rounded-md">
+                </div>
+                <div>
+                    <label for="message" class="block text-gray-600">Nachricht</label>
+                    <textarea id="message" name="message" rows="4" class="w-full mt-1 p-2 border border-gray-300 rounded-md"></textarea>
+                </div>
+                <button type="submit" class="block w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Absenden</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-4">
+        <p>&copy; 2023 UX.EU. Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+</html>
