@@ -11,6 +11,18 @@
     @keyframes fade-in-slow { 0% { opacity: 0; transform: scale(0.98); } 100% { opacity: 1; transform: scale(1); } }
     .animate-fade-in-slow { animation: fade-in-slow 1.2s ease-out both; }
     body { margin: 0; padding: 0; }
+
+    @keyframes vibrate {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+.hover-vibrate:hover {
+  animation: vibrate 0.2s linear;
+}
   </style>
 </head>
 <body class="bg-[#202020] text-[#f5f5f5] font-sans antialiased selection:bg-pink-500/20 selection:text-pink-200">
@@ -76,7 +88,7 @@
           </p>
           <div class="flex flex-wrap items-center gap-3">
             <a href="#kontakt"
-             class="inline-flex items-center justify-center rounded-2xl bg-pink-600 px-5 py-3 font-semibold hover:bg-pink-500 transition"
+             class="inline-flex items-center justify-center rounded-2xl bg-pink-600 px-5 py-3 font-semibold hover:bg-pink-500 transition hover-vibrate"
              onmouseover="navigator.vibrate && navigator.vibrate(100)">
              Kostenloses Erstgespräch
             </a>
