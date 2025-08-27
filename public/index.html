@@ -1,201 +1,229 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clarityhub Chatbot</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<style>
-@keyframes fade-in-slow { 0% { opacity: 0; transform: scale(0.95); } 100% { opacity: 1; transform: scale(1); } }
-.animate-fade-in-slow { animation: fade-in-slow 2.5s ease-out both; }
-
-.typing {
-  display: inline-block;
-  width: 0.4rem;
-  height: 0.4rem;
-  margin-right: 0.125rem;
-  background-color: #bdcccf; /* gleiche Farbe wie Bot-Text */
-  border-radius: 50%;
-  animation: blink 1.4s infinite both;
-}
-@keyframes blink {
-  0%, 80%, 100% { opacity: 0; transform: scale(0.8); }
-  40% { opacity: 1; transform: scale(1); }
-}
-
-body { margin: 0; padding: 0; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarityhub – Coaching für mentale Klarheit</title>
+  <meta name="description" content="Clarityhub: Moderne, empathische Beratung & Coaching. Flexible Termine, sichere Online-Sessions und klare Ergebnisse." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    @keyframes fade-in-slow { 0% { opacity: 0; transform: scale(0.98); } 100% { opacity: 1; transform: scale(1); } }
+    .animate-fade-in-slow { animation: fade-in-slow 1.2s ease-out both; }
+    body { margin: 0; padding: 0; }
+  </style>
 </head>
-<body class="bg-[#202020] text-[#f5f5f5] font-sans relative min-h-screen">
-
-<!-- Header -->
-<header class="bg-[#202020] px-6 py-4 text-base flex justify-between items-center">
-  <a href="index.html" class="text-pink-500 font-medium text-lg">Clarityhub</a>
-  <a href="tel:+4934500000" class="flex items-center gap-2 text-pink-500 font-medium text-base">
-    <span>Call us:</span> <span class="text-sm">+49 300 00000</span>
-  </a>
-</header>
-
-<!-- Hauptbereich -->
-<main class="bg-[#202020] mx-auto px-4 py-8 flex-1">
-  <div class="text-center mb-10">
-    <h1 class="text-2xl font-bold mb-4">Develop modern and clean Frontend</h1>
-    <h2 class="text-pink-500 text-2xl font-bold mb-6">Clarityhub</h2>
-  </div>
-  <div class="mb-10 max-w-5xl mx-auto px-4">
-    <img src="beauty929.jpg" alt="Calm and clarity" class="w-full rounded-3xl shadow-xl animate-fade-in-slow">
-  </div>
-  <div class="mx-auto px-6 md:px-16 py-6 text-gray-100 font-semibold">
-    <h3 class="text-2xl font-bold mb-6">Warum Clarityhub?</h3>
-    <p class="mb-10 leading-relaxed">Unsere Mission ist es, Menschen zu mentaler Klarheit und emotionalem Wohlbefinden zu verhelfen. Ob individuelle Beratung, Coaching oder Stressbewältigung – wir unterstützen dich dabei, deine Ziele zu erreichen und innere Balance zu finden.</p>
-    <p class="mb-12 leading-relaxed">Bei Clarityhub verbinden wir wissenschaftliche Expertise mit empathischem Ansatz, bieten flexible Termine, sichere Online-Sitzungen und eine vertrauensvolle Umgebung. Dein Weg zu mentaler Klarheit beginnt hier.</p>
-  </div>
-</main>
-
-<!-- Chat Modal -->
-<div id="chatModal" class="fixed inset-0 bg-black/70 flex justify-center items-center z-50 hidden">
-  <div id="chatContainer" class="bg-[#0f0f0f] w-[650px] h-[400px] rounded-2xl shadow-2xl p-6 flex flex-col relative">
-    <button id="closeChat" class="absolute top-3 right-4 text-[#ccc] text-2xl font-bold hover:text-white">&times;</button>
-    <header class="text-center mb-4">
-      <h1 class="text-[1.7rem] text-cyan-500 font-semibold tracking-wider">Chat</h1>
-    </header>
-    <div id="chat" class="flex-1 mb-4 bg-[#1a1a1a] p-4 rounded-2xl overflow-y-auto flex flex-col gap-3"></div>
-    <div class="flex gap-2 mt-auto">
-      <input type="text" id="input" placeholder="Stelle deine Frage..." class="flex-1 px-4 py-3 text-base bg-[#2a2a2a] text-[#f5f5f5] rounded-2xl border-none shadow-inner placeholder:text-gray-400 focus:outline-none focus:bg-[#333]">
-      <button id="sendBtn" class="bg-cyan-500 hover:bg-cyan-400 text-[#0f0f0f] px-4 py-3 rounded-2xl font-semibold shadow-lg transition">Senden</button>
+<body class="bg-[#202020] text-[#f5f5f5] font-sans antialiased selection:bg-pink-500/20 selection:text-pink-200">
+  <!-- Header -->
+  <header class="bg-[#202020] sticky top-0 z-40 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-16 flex items-center justify-between">
+        <a href="index.html" class="text-pink-500 font-semibold text-lg tracking-tight hover:opacity-90">Clarityhub</a>
+        <nav class="hidden md:flex items-center gap-8 text-sm text-gray-300">
+          <a href="über uns.html" class="hover:text-white text-base transition">Über uns</a>
+          <a href="leistungen.html" class="hover:text-white text-base transition">Leistungen</a>
+          <a href="kontakt.html" class="hover:text-white text-base transition">Kontakt</a>
+        </nav>
+        <a href="tel:+4934500000" class="inline-flex items-center gap-2 rounded-2xl bg-pink-600/20 px-3 py-2 text-pink-300 hover:bg-pink-600/30 hover:text-pink-200 transition">
+          <span class="sr-only">Ruf uns an</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.59 2.61a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.47-1.11a2 2 0 0 1 2.11-.45c.84.27 1.71.47 2.61.59A2 2 0 0 1 22 16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="font-medium">+49 300 00000</span>
+        </a>
+      </div>
     </div>
-    <button id="resizeChat" class="absolute top-5 right-12 bg-cyan-500 text-[#0f0f0f] px-2 py-1 text-xs rounded-sm shadow-sm hover:bg-cyan-400 transition">
-      Vergrößern
-    </button>
+  </header>
+
+  <!-- Mobile Bottom Navigation -->
+<nav class="fixed bottom-4 inset-x-0 z-50 flex justify-center md:hidden">
+  <div class="bg-[#2a2a2a]/90 backdrop-blur-md rounded-2xl shadow-lg px-6 py-3 flex justify-around items-center w-[90%] max-w-sm text-sm font-medium">
+    <a href="über uns.html" class="flex flex-col items-center text-gray-300 hover:text-pink-400 transition">
+      <svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M3 9.75L12 4l9 5.75M12 4v16m9-10l-9 10-9-10"></path>
+      </svg>
+      Über uns
+    </a>
+    <a href="leistungen.html" class="flex flex-col items-center text-gray-300 hover:text-pink-400 transition">
+      <svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      Leistungen
+    </a>
+    <a href="kontakt.html" class="flex flex-col items-center text-gray-300 hover:text-pink-400 transition">
+      <svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M21 10a9 9 0 1 1-6.219-8.56"></path>
+        <path d="M21 10c0 2.21-1.79 4-4 4H13v-3l-4 4 4 4v-3h4a6 6 0 0 0 6-6z"></path>
+      </svg>
+      Kontakt
+    </a>
   </div>
+</nav>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-pink-500/10 via-transparent to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+      <div class="grid md:grid-cols-2 items-center gap-10 md:gap-16">
+        <div class="animate-fade-in-slow">
+          <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight mb-4">
+            Mentale Klarheit, <span class="text-pink-500">stetige Fortschritte</span>
+          </h1>
+          <p class="text-gray-300/90 text-base md:text-lg leading-relaxed mb-6">
+            Clarityhub ist deine Adresse für moderne psychologische Beratung & Coaching.
+            Wir kombinieren wissenschaftliche Methoden mit empathischem Vorgehen – für spürbare
+            Ergebnisse im Alltag und Beruf.
+          </p>
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="#kontakt" class="inline-flex items-center justify-center rounded-2xl bg-pink-600 px-5 py-3 font-semibold hover:bg-pink-500 transition">
+              Kostenloses Erstgespräch
+            </a>
+            <a href="leistungen.html" class="inline-flex items-center justify-center rounded-2xl border border-white/10 px-5 py-3 font-semibold text-gray-200 hover:bg-white/5 transition">
+              Leistungen ansehen
+            </a>
+          </div>
+          <div class="mt-6 flex items-center gap-4 text-xs text-gray-400">
+            <div class="inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2">
+              <span>Online & vor Ort</span>
+            </div>
+            <div class="inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2">
+              <span>Diskret & sicher</span>
+            </div>
+            <div class="inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2">
+              <span>Schnelle Termine</span>
+            </div>
+          </div>
+        </div>
+        <!-- Hauptbild: bewusst kleiner gehalten -->
+        <div class="md:justify-self-end">
+          <img src="beauty929.jpg" alt="Ruhiges, klares Motiv" class="w-full max-w-md md:max-w-lg rounded-3xl shadow-2xl ring-1 ring-white/10 mx-auto md:mx-0">
+
+          <p class="text-xs text-gray-400 mt-3">
+           Hinweis: Designed by 
+          <a href="https://www.freepik.com" target="_blank" rel="noopener noreferrer" class="text-blue-500">Freepik</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition / Warum -->
+  <section id="warum" class="border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Warum Clarityhub?</h2>
+        <p class="text-gray-300 leading-relaxed mb-6">
+          Unsere Mission: Menschen zu mentaler Klarheit und emotionalem Wohlbefinden verhelfen.
+          Mit strukturierten Programmen, klaren Zielen und individueller Begleitung unterstützen wir
+          dich bei Stressbewältigung, Fokus, Resilienz und persönlicher Entwicklung.
+        </p>
+        <p class="text-gray-300 leading-relaxed">
+          Ob 1:1-Coaching, Kurzinterventionen oder fortlaufende Begleitung – wir verbinden
+          evidenzbasierte Methoden mit einem warmen, menschlichen Ansatz. Dein Weg zu mehr Leichtigkeit
+          beginnt hier.
+        </p>
+      </div>
+
+      <!-- Feature-Grid -->
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div class="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
+          <div class="mb-3">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 20l9-16H3l9 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-1">Klare Ziele</h3>
+          <p class="text-sm text-gray-300">Gemeinsam definieren wir messbare Ziele und verfolgen deinen Fortschritt transparent.</p>
+        </div>
+        <div class="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
+          <div class="mb-3">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M21 15a4 4 0 0 1-4 4H7a4 4 0 1 1 0-8h10a4 4 0 0 1 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-1">Stress runter</h3>
+          <p class="text-sm text-gray-300">Tools für Alltag & Beruf: von Atemtechniken bis kognitiven Strategien.</p>
+        </div>
+        <div class="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
+          <div class="mb-3">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 3v18m9-9H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-1">Flexible Termine</h3>
+          <p class="text-sm text-gray-300">Schnelle Verfügbarkeit, online oder vor Ort in diskreter Umgebung.</p>
+        </div>
+        <div class="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
+          <div class="mb-3">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-1">Vertrauensvoll</h3>
+          <p class="text-sm text-gray-300">Datenschutz & Sicherheit first – deine Themen bleiben vertraulich.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leistungen kurz -->
+  <section id="leistungen" class="border-t border-white/5 bg-white/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+      <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-start">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">Leistungen im Überblick</h2>
+          <ul class="space-y-3 text-gray-300">
+            <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-pink-500"></span> 1:1-Coaching (60–90 Min.)</li>
+            <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-pink-500"></span> Kurzformate & Akuttermine</li>
+            <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-pink-500"></span> Stress- & Resilienz-Programme</li>
+            <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-pink-500"></span> Team-Workshops (auf Anfrage)</li>
+          </ul>
+          <a href="kontakt.html" class="mt-6 inline-flex rounded-2xl bg-pink-600 px-5 py-3 font-semibold hover:bg-pink-500 transition">Jetzt Termin anfragen</a>
+        </div>
+
+<div class="rounded-2xl border border-white/10 p-4 shadow-lg">
+  <div class="flex flex-wrap justify-center gap-4">
+    
+    <img src="vorlesung.jpg" alt="Ruhiger Raum" 
+         class="h-64 md:w-56 aspect-[4/3] object-cover rounded-xl ring-1 ring-white/10 shadow" loading="lazy">
+    <img src="perspektive.jpg" alt="Fokus & Klarheit" 
+         class="h-64 md:w-56 aspect-[4/3] object-cover rounded-xl ring-1 ring-white/10 shadow" loading="lazy">
+  </div>
+
+  <p class="text-xs text-gray-400 mt-3 text-center border-t border-white/10 pt-3">
+    Hinweis: Designed by 
+    <a href="https://www.freepik.com" target="_blank" rel="noopener noreferrer" class="text-blue-500">Freepik</a>
+  </p>
 </div>
 
-<button id="openChat" class="fixed bottom-6 right-6 bg-cyan-500 text-[#0f0f0f] px-5 py-3 rounded-full text-sm font-semibold shadow-lg hover:bg-cyan-400 transition"> Chat öffnen... </button>
+</section>
 
-<!-- Moderner Footer -->
-<footer class="bg-[#181818]/90 text-gray-400 text-sm py-8 mt-4 border-t border-gray-700">
-  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-    <span class="text-gray-400">&copy; 2025 Clarityhub. Alle Rechte vorbehalten.</span>
-    <div class="flex flex-wrap justify-center gap-6 mt-2 md:mt-0">
-      <a href="impressum.html" class="hover:text-white hover:underline transition-all">Impressum</a>
-      <a href="datenschutz.html" class="hover:text-white hover:underline transition-all">Datenschutz</a>
-      <a href="kontakt.html" class="hover:text-white hover:underline transition-all">Kontakt</a>
+
+  <!-- Kontakt / CTA -->
+  <section id="kontakt" class="border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-3">Bereit für mehr Klarheit?</h2>
+      <p class="text-gray-300 leading-relaxed mb-6">Sichere dir ein kostenloses, unverbindliches Erstgespräch. Wir klären Ziele, Ablauf und die nächsten Schritte.</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="kontakt.html" class="inline-flex items-center justify-center rounded-2xl bg-pink-600 px-5 py-3 font-semibold hover:bg-pink-500 transition">E-Mail schreiben</a>
+        <a href="tel:+4934500000" class="inline-flex items-center justify-center rounded-2xl border border-white/10 px-5 py-3 font-semibold text-gray-200 hover:bg-white/5 transition">Anrufen</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-
-<script>
-const input = document.getElementById("input");
-const chat = document.getElementById("chat");
-const sendBtn = document.getElementById("sendBtn");
-const openBtn = document.getElementById("openChat");
-const closeBtn = document.getElementById("closeChat");
-const modal = document.getElementById("chatModal");
-const chatContainer = document.getElementById("chatContainer");
-const resizeBtn = document.getElementById("resizeChat");
-
-// Modal öffnen
-openBtn.addEventListener("click", () => { 
-  modal.classList.remove("hidden"); 
-  document.body.classList.add("overflow-hidden"); 
-  openBtn.classList.add("hidden"); // Button ausblenden
-});
-
-// Modal schließen
-closeBtn.addEventListener("click", () => { 
-  modal.classList.add("hidden"); 
-  document.body.classList.remove("overflow-hidden"); 
-  openBtn.classList.remove("hidden"); // Button wieder einblenden
-});
-
-window.addEventListener("click", (e) => { 
-  if(e.target === modal){ 
-    modal.classList.add("hidden"); 
-    document.body.classList.remove("overflow-hidden"); 
-    openBtn.classList.remove("hidden"); // Button wieder einblenden
-  }
-});
-
-
-// Nachrichten senden
-async function sendMessage(){
-  const message = input.value.trim();
-  if(!message) return;
-
-  // User-Nachricht
-  const userMsg = document.createElement("div");
-  userMsg.className = "msg user bg-[#1a1a1a] text-green-400 p-3 rounded-2xl self-end max-w-[80%] opacity-0 break-words";
-  userMsg.textContent = message;
-  chat.appendChild(userMsg);
-  setTimeout(() => userMsg.classList.add("animate-fade-in-slow"), 10);
-  chat.scrollTop = chat.scrollHeight;
-  input.value = "";
-
-  // Bot Typing-Animation
-  const typingEl = document.createElement("div");
-  typingEl.className = "msg bot bg-[#1a1a1a] p-3 rounded-2xl max-w-[80%] break-words opacity-0 flex flex-col gap-1 mt-1";
-  typingEl.innerHTML = '<div class="flex gap-1"><span class="typing"></span><span class="typing"></span><span class="typing"></span></div>';
-  chat.appendChild(typingEl);
-  setTimeout(() => typingEl.classList.add("animate-fade-in-slow"), 10);
-  chat.scrollTop = chat.scrollHeight;
-
-  try {
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ message })
-    });
-  
-
-    const data = await res.json();
-
-if(data.type === "PII"){
-  // Zeige den Hinweis direkt im Chat
-  typingEl.innerHTML = `<span class="text-yellow-400 font-semibold">${data.message}</span>`;
-} else if(data.reply){
-  typingEl.innerHTML = marked.parse(data.reply);
-} else if(data.error){
-  typingEl.innerHTML = "Fehler beim Laden der Antwort.";
-}
-
-chat.scrollTop = chat.scrollHeight;
-
-
-
-
-  } catch(err) {
-    typingEl.innerHTML = "Fehler beim Laden der Antwort.";
-    console.error(err);
-  }
-}
-
-// Enter-Taste senden
-input.addEventListener("keypress", (e) => {
-  if(e.key === "Enter") sendMessage();
-});
-sendBtn.addEventListener("click", sendMessage);
-
-// Chat Größe ändern
-const normalSize = { width: 650, height: 400 };
-const largeSize = { width: 900, height: 600 };
-let isLarge = false;
-
-resizeBtn.addEventListener("click", () => {
-  if(!isLarge){
-    chatContainer.style.width = largeSize.width + "px";
-    chatContainer.style.height = largeSize.height + "px";
-    resizeBtn.textContent = "Verkleinern";
-    isLarge = true;
-  } else {
-    chatContainer.style.width = normalSize.width + "px";
-    chatContainer.style.height = normalSize.height + "px";
-    resizeBtn.textContent = "Vergrößern";
-    isLarge = false;
-  }
-});
-</script>
-
+  <!-- Footer -->
+  <footer class="bg-[#181818]/90 text-gray-400 text-sm py-10 border-t border-gray-700/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <span>&copy; 2025 Clarityhub. Alle Rechte vorbehalten.</span>
+        <div class="flex flex-wrap justify-center gap-6">
+          <a href="impressum.html" class="hover:text-white transition-all">Impressum</a>
+          <a href="datenschutz.html" class="hover:text-white transition-all">Datenschutz</a>
+          <a href="kontakt.html" class="hover:text-white transition-all">Kontakt</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

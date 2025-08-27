@@ -1,76 +1,201 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UX.EU Agency</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clarityhub Chatbot</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+@keyframes fade-in-slow { 0% { opacity: 0; transform: scale(0.95); } 100% { opacity: 1; transform: scale(1); } }
+.animate-fade-in-slow { animation: fade-in-slow 2.5s ease-out both; }
+
+.typing {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-right: 0.125rem;
+  background-color: #bdcccf; /* gleiche Farbe wie Bot-Text */
+  border-radius: 50%;
+  animation: blink 1.4s infinite both;
+}
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1); }
+}
+
+body { margin: 0; padding: 0; }
+</style>
 </head>
-<body class="antialiased bg-gray-100 text-gray-900">
-    <header class="bg-white shadow-md">
-        <div class="container mx-auto flex justify-between items-center p-4">
-            <h1 class="text-2xl font-bold">UX.EU</h1>
-            <nav class="space-x-4">
-                <a href="#about" class="hover:text-blue-500">Über uns</a>
-                <a href="#services" class="hover:text-blue-500">Leistungen</a>
-                <a href="#contact" class="hover:text-blue-500">Kontakt</a>
-            </nav>
-        </div>
+<body class="bg-[#202020] text-[#f5f5f5] font-sans relative min-h-screen">
+
+<!-- Header -->
+<header class="bg-[#202020] px-6 py-4 text-base flex justify-between items-center">
+  <a href="index.html" class="text-pink-500 font-medium text-lg">Clarityhub</a>
+  <a href="tel:+4934500000" class="flex items-center gap-2 text-pink-500 font-medium text-base">
+    <span>Call us:</span> <span class="text-sm">+49 300 00000</span>
+  </a>
+</header>
+
+<!-- Hauptbereich -->
+<main class="bg-[#202020] mx-auto px-4 py-8 flex-1">
+  <div class="text-center mb-10">
+    <h1 class="text-2xl font-bold mb-4">Develop modern and clean Frontend</h1>
+    <h2 class="text-pink-500 text-2xl font-bold mb-6">Clarityhub</h2>
+  </div>
+  <div class="mb-10 max-w-5xl mx-auto px-4">
+    <img src="beauty929.jpg" alt="Calm and clarity" class="w-full rounded-3xl shadow-xl animate-fade-in-slow">
+  </div>
+  <div class="mx-auto px-6 md:px-16 py-6 text-gray-100 font-semibold">
+    <h3 class="text-2xl font-bold mb-6">Warum Clarityhub?</h3>
+    <p class="mb-10 leading-relaxed">Unsere Mission ist es, Menschen zu mentaler Klarheit und emotionalem Wohlbefinden zu verhelfen. Ob individuelle Beratung, Coaching oder Stressbewältigung – wir unterstützen dich dabei, deine Ziele zu erreichen und innere Balance zu finden.</p>
+    <p class="mb-12 leading-relaxed">Bei Clarityhub verbinden wir wissenschaftliche Expertise mit empathischem Ansatz, bieten flexible Termine, sichere Online-Sitzungen und eine vertrauensvolle Umgebung. Dein Weg zu mentaler Klarheit beginnt hier.</p>
+  </div>
+</main>
+
+<!-- Chat Modal -->
+<div id="chatModal" class="fixed inset-0 bg-black/70 flex justify-center items-center z-50 hidden">
+  <div id="chatContainer" class="bg-[#0f0f0f] w-[650px] h-[400px] rounded-2xl shadow-2xl p-6 flex flex-col relative">
+    <button id="closeChat" class="absolute top-3 right-4 text-[#ccc] text-2xl font-bold hover:text-white">&times;</button>
+    <header class="text-center mb-4">
+      <h1 class="text-[1.7rem] text-cyan-500 font-semibold tracking-wider">Chat</h1>
     </header>
+    <div id="chat" class="flex-1 mb-4 bg-[#1a1a1a] p-4 rounded-2xl overflow-y-auto flex flex-col gap-3"></div>
+    <div class="flex gap-2 mt-auto">
+      <input type="text" id="input" placeholder="Stelle deine Frage..." class="flex-1 px-4 py-3 text-base bg-[#2a2a2a] text-[#f5f5f5] rounded-2xl border-none shadow-inner placeholder:text-gray-400 focus:outline-none focus:bg-[#333]">
+      <button id="sendBtn" class="bg-cyan-500 hover:bg-cyan-400 text-[#0f0f0f] px-4 py-3 rounded-2xl font-semibold shadow-lg transition">Senden</button>
+    </div>
+    <button id="resizeChat" class="absolute top-5 right-12 bg-cyan-500 text-[#0f0f0f] px-2 py-1 text-xs rounded-sm shadow-sm hover:bg-cyan-400 transition">
+      Vergrößern
+    </button>
+  </div>
+</div>
 
-    <main class="container mx-auto mt-10">
-        <section id="hero" class="text-center py-20 px-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-            <h2 class="text-4xl font-semibold">Innovative UX-Lösungen für Ihr Unternehmen</h2>
-            <p class="mt-4">Wir gestalten digitale Erlebnisse, die Ihre Kunden begeistern.</p>
-        </section>
+<button id="openChat" class="fixed bottom-6 right-6 bg-cyan-500 text-[#0f0f0f] px-5 py-3 rounded-full text-sm font-semibold shadow-lg hover:bg-cyan-400 transition"> Chat öffnen... </button>
 
-        <section id="about" class="mt-16 px-4">
-            <h2 class="text-3xl font-semibold text-center">Über uns</h2>
-            <p class="mt-4 text-center max-w-xl mx-auto text-gray-700">
-                UX.EU ist eine führende Agentur für User Experience Design. Wir arbeiten eng mit unseren Kunden zusammen, um maßgeschneiderte digitale Erlebnisse zu entwickeln.
-            </p>
-        </section>
+<!-- Moderner Footer -->
+<footer class="bg-[#181818]/90 text-gray-400 text-sm py-8 mt-4 border-t border-gray-700">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+    <span class="text-gray-400">&copy; 2025 Clarityhub. Alle Rechte vorbehalten.</span>
+    <div class="flex flex-wrap justify-center gap-6 mt-2 md:mt-0">
+      <a href="impressum.html" class="hover:text-white hover:underline transition-all">Impressum</a>
+      <a href="datenschutz.html" class="hover:text-white hover:underline transition-all">Datenschutz</a>
+      <a href="kontakt.html" class="hover:text-white hover:underline transition-all">Kontakt</a>
+    </div>
+  </div>
+</footer>
 
-        <section id="services" class="mt-16 px-4">
-            <h2 class="text-3xl font-semibold text-center">Unsere Leistungen</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-2">Research & Strategie</h3>
-                    <p class="text-gray-600">Wir analysieren Nutzerverhalten und entwickeln Strategien, um Ihre Geschäftsziele zu erreichen.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-2">Design & Prototyping</h3>
-                    <p class="text-gray-600">Kreatives Design, das Benutzer anspricht und Ihre Markenidentität unterstützt.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-2">Testing & Optimierung</h3>
-                    <p class="text-gray-600">Kontinuierliches Testing zur Leistungsverbesserung Ihrer digitalen Produkte.</p>
-                </div>
-            </div>
-        </section>
 
-        <section id="contact" class="mt-16 px-4 py-12 bg-white">
-            <h2 class="text-3xl font-semibold text-center">Kontakt</h2>
-            <form action="#" method="POST" class="max-w-lg mx-auto mt-8 space-y-4">
-                <div>
-                    <label for="name" class="block text-gray-600">Name</label>
-                    <input type="text" id="name" name="name" class="w-full mt-1 p-2 border border-gray-300 rounded-md">
-                </div>
-                <div>
-                    <label for="email" class="block text-gray-600">E-Mail</label>
-                    <input type="email" id="email" name="email" class="w-full mt-1 p-2 border border-gray-300 rounded-md">
-                </div>
-                <div>
-                    <label for="message" class="block text-gray-600">Nachricht</label>
-                    <textarea id="message" name="message" rows="4" class="w-full mt-1 p-2 border border-gray-300 rounded-md"></textarea>
-                </div>
-                <button type="submit" class="block w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Absenden</button>
-            </form>
-        </section>
-    </main>
+<script>
+const input = document.getElementById("input");
+const chat = document.getElementById("chat");
+const sendBtn = document.getElementById("sendBtn");
+const openBtn = document.getElementById("openChat");
+const closeBtn = document.getElementById("closeChat");
+const modal = document.getElementById("chatModal");
+const chatContainer = document.getElementById("chatContainer");
+const resizeBtn = document.getElementById("resizeChat");
 
-    <footer class="bg-gray-800 text-white text-center p-4">
-        <p>&copy; 2023 UX.EU. Alle Rechte vorbehalten.</p>
-    </footer>
+// Modal öffnen
+openBtn.addEventListener("click", () => { 
+  modal.classList.remove("hidden"); 
+  document.body.classList.add("overflow-hidden"); 
+  openBtn.classList.add("hidden"); // Button ausblenden
+});
+
+// Modal schließen
+closeBtn.addEventListener("click", () => { 
+  modal.classList.add("hidden"); 
+  document.body.classList.remove("overflow-hidden"); 
+  openBtn.classList.remove("hidden"); // Button wieder einblenden
+});
+
+window.addEventListener("click", (e) => { 
+  if(e.target === modal){ 
+    modal.classList.add("hidden"); 
+    document.body.classList.remove("overflow-hidden"); 
+    openBtn.classList.remove("hidden"); // Button wieder einblenden
+  }
+});
+
+
+// Nachrichten senden
+async function sendMessage(){
+  const message = input.value.trim();
+  if(!message) return;
+
+  // User-Nachricht
+  const userMsg = document.createElement("div");
+  userMsg.className = "msg user bg-[#1a1a1a] text-green-400 p-3 rounded-2xl self-end max-w-[80%] opacity-0 break-words";
+  userMsg.textContent = message;
+  chat.appendChild(userMsg);
+  setTimeout(() => userMsg.classList.add("animate-fade-in-slow"), 10);
+  chat.scrollTop = chat.scrollHeight;
+  input.value = "";
+
+  // Bot Typing-Animation
+  const typingEl = document.createElement("div");
+  typingEl.className = "msg bot bg-[#1a1a1a] p-3 rounded-2xl max-w-[80%] break-words opacity-0 flex flex-col gap-1 mt-1";
+  typingEl.innerHTML = '<div class="flex gap-1"><span class="typing"></span><span class="typing"></span><span class="typing"></span></div>';
+  chat.appendChild(typingEl);
+  setTimeout(() => typingEl.classList.add("animate-fade-in-slow"), 10);
+  chat.scrollTop = chat.scrollHeight;
+
+  try {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ message })
+    });
+  
+
+    const data = await res.json();
+
+if(data.type === "PII"){
+  // Zeige den Hinweis direkt im Chat
+  typingEl.innerHTML = `<span class="text-yellow-400 font-semibold">${data.message}</span>`;
+} else if(data.reply){
+  typingEl.innerHTML = marked.parse(data.reply);
+} else if(data.error){
+  typingEl.innerHTML = "Fehler beim Laden der Antwort.";
+}
+
+chat.scrollTop = chat.scrollHeight;
+
+
+
+
+  } catch(err) {
+    typingEl.innerHTML = "Fehler beim Laden der Antwort.";
+    console.error(err);
+  }
+}
+
+// Enter-Taste senden
+input.addEventListener("keypress", (e) => {
+  if(e.key === "Enter") sendMessage();
+});
+sendBtn.addEventListener("click", sendMessage);
+
+// Chat Größe ändern
+const normalSize = { width: 650, height: 400 };
+const largeSize = { width: 900, height: 600 };
+let isLarge = false;
+
+resizeBtn.addEventListener("click", () => {
+  if(!isLarge){
+    chatContainer.style.width = largeSize.width + "px";
+    chatContainer.style.height = largeSize.height + "px";
+    resizeBtn.textContent = "Verkleinern";
+    isLarge = true;
+  } else {
+    chatContainer.style.width = normalSize.width + "px";
+    chatContainer.style.height = normalSize.height + "px";
+    resizeBtn.textContent = "Vergrößern";
+    isLarge = false;
+  }
+});
+</script>
+
 </body>
 </html>
