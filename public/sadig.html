@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sadig Ishar – Rechtsanwältin Berlin</title>
+  <meta name="description" content="Sadig Ishar – Moderne Anwaltskanzlei in Berlin. Kompetent, vertrauensvoll, diskret." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+    body { margin: 0; padding: 0; font-family: 'Roboto Slab', serif; background-color: #f8f9fa; color: #1f2937; }
+    a { transition: all 0.2s ease; }
+    .btn-primary { background-color: #1e40af; color: #f8fafc; }
+    .btn-primary:hover { background-color: #2563eb; }
+    .btn-secondary { border: 1px solid #1e293b; color: #1e293b; }
+    .btn-secondary:hover { background-color: #e2e8f0; }
+    .feature-icon { color: #1e40af; }
+
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation (an die Größe/Optik von nyccriminalattorneys.com angelehnt) -->
+  <header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-20 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="index.html" class="font-bold text-2xl tracking-tight text-gray-900">Sadig Ishar</a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden lg:flex items-center gap-8 text-[15px] tracking-wide">
+          <a href="index.html" class="py-2 text-gray-700 hover:text-gray-900">Startseite</a>
+
+          <!-- Über uns (Dropdown) -->
+          <div class="relative group">
+            <button
+              class="inline-flex items-center gap-1 py-2 text-gray-700 hover:text-gray-900 focus:outline-none"
+              aria-haspopup="true" aria-expanded="false">
+              Über uns
+              <svg class="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <div
+              class="pointer-events-none absolute left-0 top-full mt-3 w-56 rounded-xl bg-white ring-1 ring-gray-200 shadow-lg opacity-0 translate-y-1 transition duration-150 ease-out
+                     group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto focus-within:opacity-100 focus-within:translate-y-0">
+              <div class="py-2">
+                <a href="über-uns.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Kanzlei</a>
+                <a href="team.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Team</a>
+                <a href="karriere.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Karriere</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leistungen (Dropdown) -->
+          <div class="relative group">
+            <button
+              class="inline-flex items-center gap-1 py-2 text-gray-700 hover:text-gray-900 focus:outline-none"
+              aria-haspopup="true" aria-expanded="false">
+              Leistungen
+              <svg class="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <div
+              class="pointer-events-none absolute left-0 top-full mt-3 w-64 rounded-xl bg-white ring-1 ring-gray-200 shadow-lg opacity-0 translate-y-1 transition duration-150 ease-out
+                     group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto focus-within:opacity-100 focus-within:translate-y-0">
+              <div class="py-2">
+                <a href="#leistungen" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Arbeitsrecht</a>
+                <a href="#leistungen" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Vertragsrecht</a>
+                <a href="#leistungen" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Familien- & Erbrecht</a>
+                <a href="#leistungen" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Straf- & OWi-Recht</a>
+                <a href="#leistungen" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900">Allgemeine Beratung</a>
+              </div>
+            </div>
+          </div>
+
+          <a href="kontakt.html" class="py-2 text-gray-700 hover:text-gray-900">Kontakt</a>
+        </nav>
+
+        <!-- CTA rechts -->
+        <a href="tel:+493012345678"
+           class="hidden md:inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold bg-blue-700 text-white hover:bg-blue-600">
+          <span class="sr-only">Ruf uns an</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.59 2.61a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.47-1.11a2 2 0 0 1 2.11-.45c.84.27 1.71.47 2.61.59A2 2 0 0 1 22 16.92Z"/>
+          </svg>
+          +49 30 12345678
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button"
+                class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 focus:outline-none"
+                aria-controls="mobile-menu" aria-expanded="false">
+          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-200">
+      <div class="px-4 py-3 space-y-1 text-gray-800">
+        <a href="index.html" class="block px-2 py-2 rounded-md hover:bg-gray-100">Startseite</a>
+
+        <!-- Mobile Dropdown: Über uns -->
+        <div class="border-t border-gray-100 pt-2">
+          <button id="mobile-about-btn"
+                  class="w-full flex items-center justify-between px-2 py-2 rounded-md hover:bg-gray-100 focus:outline-none"
+                  aria-controls="mobile-about-menu" aria-expanded="false">
+            <span>Über uns</span>
+            <svg class="h-4 w-4 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+          <div id="mobile-about-menu" class="hidden pl-4">
+            <a href="über-uns.html" class="block px-2 py-2 rounded-md hover:bg-gray-100">Kanzlei</a>
+            <a href="team.html" class="block px-2 py-2 rounded-md hover:bg-gray-100">Team</a>
+            <a href="karriere.html" class="block px-2 py-2 rounded-md hover:bg-gray-100">Karriere</a>
+          </div>
+        </div>
+
+        <!-- Mobile Dropdown: Leistungen -->
+        <div class="border-t border-gray-100 pt-2">
+          <button id="mobile-services-btn"
+                  class="w-full flex items-center justify-between px-2 py-2 rounded-md hover:bg-gray-100 focus:outline-none"
+                  aria-controls="mobile-services-menu" aria-expanded="false">
+            <span>Leistungen</span>
+            <svg class="h-4 w-4 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+          <div id="mobile-services-menu" class="hidden pl-4">
+            <a href="#leistungen" class="block px-2 py-2 rounded-md hover:bg-gray-100">Arbeitsrecht</a>
+            <a href="#leistungen" class="block px-2 py-2 rounded-md hover:bg-gray-100">Vertragsrecht</a>
+            <a href="#leistungen" class="block px-2 py-2 rounded-md hover:bg-gray-100">Familien- & Erbrecht</a>
+            <a href="#leistungen" class="block px-2 py-2 rounded-md hover:bg-gray-100">Straf- & OWi-Recht</a>
+            <a href="#leistungen" class="block px-2 py-2 rounded-md hover:bg-gray-100">Allgemeine Beratung</a>
+          </div>
+        </div>
+
+        <a href="kontakt.html" class="block px-2 py-2 rounded-md hover:bg-gray-100">Kontakt</a>
+        <a href="tel:+493012345678" class="block px-2 py-2 rounded-md hover:bg-gray-100">+49 30 12345678</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Sadig Ishar – <span class="text-blue-700">Ihre Anwältin in Berlin</span>
+        </h1>
+        <p class="text-gray-700 text-lg mb-4">
+          Wir bieten kompetente und persönliche rechtliche Beratung für Privatpersonen und Unternehmen.
+          Unser Fokus liegt auf Arbeitsrecht, Vertragsrecht, Familien- und Strafrecht.
+        </p>
+        <p class="text-gray-700 text-lg mb-6">
+          Unser Ziel ist es, komplexe rechtliche Sachverhalte verständlich zu machen und gemeinsam mit Ihnen die
+          bestmögliche Lösung zu erarbeiten – diskret, zuverlässig und professionell.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="kontakt.html" class="btn-primary rounded-2xl px-6 py-3 font-semibold">Kostenloses Erstgespräch</a>
+          <a href="leistungen.html" class="btn-secondary rounded-2xl px-6 py-3 font-semibold">Leistungen ansehen</a>
+        </div>
+      </div>
+      <div class="flex justify-center">
+        <img src="anwältinx.jpg" alt="Kanzlei Berlin" class="w-4/5 rounded-xl shadow-md">
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophie -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold mb-6">Unsere Philosophie</h2>
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Vertrauen, Präzision und Kompetenz bilden das Fundament unserer Arbeit. Wir beraten transparent,
+        verständlich und individuell, um die bestmöglichen Ergebnisse für unsere Mandanten zu erzielen.
+      </p>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="p-6 bg-white rounded-2xl shadow-md text-center">
+          <div class="mb-4 text-blue-700">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 20l9-16H3l9 16Z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-2">Präzision</h3>
+          <p class="text-gray-600 text-sm">Wir arbeiten detailliert und transparent, damit Sie stets informiert sind.</p>
+        </div>
+        <div class="p-6 bg-white rounded-2xl shadow-md text-center">
+          <div class="mb-4 text-blue-700">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a4 4 0 0 1-4 4H7a4 4 0 1 1 0-8h10a4 4 0 0 1 4 4Z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-2">Vertrauen</h3>
+          <p class="text-gray-600 text-sm">Diskretion und Integrität stehen bei allen Fällen an erster Stelle.</p>
+        </div>
+        <div class="p-6 bg-white rounded-2xl shadow-md text-center">
+          <div class="mb-4 text-blue-700">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3v18m9-9H3"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-2">Kompetenz</h3>
+          <p class="text-gray-600 text-sm">Fundiertes juristisches Wissen gepaart mit praxisnaher Beratung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leistungen -->
+  <section id="leistungen" class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold mb-6">Leistungen</h2>
+      <ul class="space-y-4 text-gray-700 text-lg">
+        <li>Arbeitsrechtliche Beratung & Vertretung</li>
+        <li>Vertragsprüfung und -gestaltung</li>
+        <li>Familien- & Erbrecht</li>
+        <li>Straf- und Ordnungswidrigkeitenrecht</li>
+        <li>Allgemeine Rechtsberatung für Privat- und Firmenkunden</li>
+      </ul>
+      <a href="kontakt.html" class="btn-primary mt-6 inline-block rounded-2xl px-6 py-3 font-semibold">Termin vereinbaren</a>
+    </div>
+  </section>
+
+  <!-- Kontakt / CTA -->
+  <section id="kontakt" class="py-20 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-3">Kontaktieren Sie uns</h2>
+      <p class="text-gray-700 mb-6">
+        Vereinbaren Sie ein unverbindliches Erstgespräch. Wir klären Ihre rechtlichen Optionen
+        und beraten Sie professionell über die nächsten Schritte.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="kontakt.html" class="btn-primary rounded-2xl px-6 py-3 font-semibold">E-Mail schreiben</a>
+        <a href="tel:+493012345678" class="btn-secondary rounded-2xl px-6 py-3 font-semibold">Anrufen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 text-sm py-10 border-t border-gray-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between gap-6">
+      <span>&copy; 2025 Sadig Ishar. Alle Rechte vorbehalten.</span>
+      <div class="flex flex-wrap gap-6">
+        <a href="impressum.html" class="hover:text-white">Impressum</a>
+        <a href="datenschutz.html" class="hover:text-white">Datenschutz</a>
+        <a href="kontakt.html" class="hover:text-white">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => {
+      const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+      mobileMenuButton.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Mobile Dropdowns
+    function setupCollapsible(btnId, panelId) {
+      const btn = document.getElementById(btnId);
+      const panel = document.getElementById(panelId);
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        panel.classList.toggle('hidden');
+        // rotate chevron
+        const icon = btn.querySelector('svg');
+        if (icon) icon.style.transform = expanded ? '' : 'rotate(180deg)';
+      });
+    }
+    setupCollapsible('mobile-about-btn', 'mobile-about-menu');
+    setupCollapsible('mobile-services-btn', 'mobile-services-menu');
+  </script>
+</body>
+</html>

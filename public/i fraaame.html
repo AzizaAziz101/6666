@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio - 19thara</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    /* Typografie */
+    .headline {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    @media (min-width: 640px) {
+      .headline {
+        font-size: 3rem;
+      }
+    }
+    .subheadline {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #a3a3a3;
+    }
+    @media (min-width: 640px) {
+      .subheadline {
+        font-size: 1.125rem;
+      }
+    }
+    /* Eleganter Fade-In Effekt */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(8px);
+      transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  </style>
+</head>
+<body 
+  class="bg-black flex flex-col items-center justify-start min-h-screen text-gray-100 font-sans selection:bg-white selection:text-black"
+  x-data="animatedTitle()" 
+  x-init="init()"
+>
+
+  <!-- Header -->
+  <header class="w-full py-20 flex flex-col items-center text-center px-6">
+
+    <h1 class="headline font-semibold text-white mb-6 flex flex-wrap justify-center select-none tracking-tight">
+      <template x-for="(letter, index) in title.split('')" :key="index">
+        <span 
+          x-text="letter"
+          x-show="visible[index]"
+          x-transition:enter="transition ease-out duration-500"
+          x-transition:enter-start="opacity-0 translate-y-2"
+          x-transition:enter-end="opacity-100 translate-y-0"
+          class="inline-block"
+        ></span>
+      </template>
+    </h1>
+
+    <p class="subheadline max-w-xl mb-3">
+      Willkommen in meinem Portfolio. Ausgewählte Projekte, modernes UI, klare Strukturen.
+    </p>
+
+    <p class="max-w-2xl text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
+      Mein Fokus liegt auf minimalistischem, funktionalem Design, inspiriert von modernen Tech-Webseiten. 
+      Saubere Typografie, fließende Animationen und eine klare Informationsarchitektur schaffen ein Erlebnis, 
+      das gleichzeitig elegant und zugänglich ist. Dabei setze ich bewusst auf Performance und schlanken Code, 
+      um Benutzerfreundlichkeit mit einer hochwertigen visuellen Ästhetik zu verbinden.
+    </p>
+
+    <p class="text-sm sm:text-base text-gray-400 font-mono">
+      Frontend Developer • HTML • TailwindCSS • JavaScript
+    </p>
+  </header>
+
+  <!-- Projekte -->
+  <main class="max-w-5xl mx-auto px-6 space-y-20">
+
+
+    <!-- Projekt 1 -->
+    <section 
+      x-data="{ showMore: false, iframeVisible: false }"
+      x-init="$watch('showMore', val => { if(val) iframeVisible = true })"
+      x-data="fadeInOnScroll(0)" 
+      x-init="observe($el)" 
+      :class="visible ? 'fade-section visible' : 'fade-section'"
+      class="group relative bg-neutral-900 rounded-2xl border border-neutral-800 overflow-hidden hover:border-neutral-700"
+    >
+      <!-- Vorschau-Bild oder Iframe -->
+      <div @click="iframeVisible = true" class="cursor-pointer">
+        <template x-if="!iframeVisible">
+          <img src="me.png" alt="Projekt 1" class="w-full h-72 object-cover">
+        </template>
+        <template x-if="iframeVisible">
+          <iframe src="sadig.html" class="w-full h-72 border-none"></iframe>
+        </template>
+      </div>
+
+      <div class="p-8">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg sm:text-xl font-semibold tracking-tight text-white">Landingpage für Startup</h2>
+          <button 
+            @click="showMore = !showMore"
+            class="w-9 h-9 flex items-center justify-center rounded-md bg-white/10 border border-white/20 hover:bg-white/20 active:scale-95 transition"
+          >
+            <span x-show="!showMore" class="text-lg leading-none text-white">+</span>
+            <span x-show="showMore" class="text-lg leading-none text-white">−</span>
+          </button>
+        </div>
+        <div x-show="showMore" x-transition class="space-y-4">
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Eine persönliche Portfolio-Seite zur Präsentation meiner Projekte. Dunkles, modernes Design und dezente Animationen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Projekt 2 -->
+    <section 
+      x-data="{ showMore: false, iframeVisible: false }"
+      x-init="$watch('showMore', val => { if(val) iframeVisible = true })"
+      x-data="fadeInOnScroll(200)" 
+      x-init="observe($el)" 
+      :class="visible ? 'fade-section visible' : 'fade-section'"
+      class="group relative bg-neutral-900 rounded-2xl border border-neutral-800 overflow-hidden hover:border-neutral-700"
+    >
+      <div @click="iframeVisible = true" class="cursor-pointer">
+        <template x-if="!iframeVisible">
+          <img src="landingpage2.jpg" alt="Projekt 2" class="w-full h-72 object-cover">
+        </template>
+        <template x-if="iframeVisible">
+          <iframe src="10000.html" class="w-full h-72 border-none"></iframe>
+        </template>
+      </div>
+
+      <div class="p-8">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg sm:text-xl font-semibold tracking-tight text-white">Portfolio Website</h2>
+          <button 
+            @click="showMore = !showMore"
+            class="w-9 h-9 flex items-center justify-center rounded-md bg-white/10 border border-white/20 hover:bg-white/20 active:scale-95 transition"
+          >
+            <span x-show="!showMore" class="text-lg leading-none text-white">+</span>
+            <span x-show="showMore" class="text-lg leading-none text-white">−</span>
+          </button>
+        </div>
+        <div x-show="showMore" x-transition class="space-y-4">
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Eine persönliche Portfolio-Seite zur Präsentation meiner Projekte. Dunkles, modernes Design und dezente Animationen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Projekt 3 -->
+    <section 
+      x-data="{ showMore: false, iframeVisible: false }"
+      x-init="$watch('showMore', val => { if(val) iframeVisible = true })"
+      x-data="fadeInOnScroll(400)" 
+      x-init="observe($el)" 
+      :class="visible ? 'fade-section visible' : 'fade-section'"
+      class="group relative bg-neutral-900 rounded-2xl border border-neutral-800 overflow-hidden hover:border-neutral-700"
+    >
+      <div @click="iframeVisible = true" class="cursor-pointer">
+        <template x-if="!iframeVisible">
+          <img src="landingpage3.jpg" alt="Projekt 3" class="w-full h-72 object-cover">
+        </template>
+        <template x-if="iframeVisible">
+          <iframe src="Hayat.html" class="w-full h-72 border-none"></iframe>
+        </template>
+      </div>
+
+      <div class="p-8">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg sm:text-xl font-semibold tracking-tight text-white">Dashboard UI</h2>
+          <button 
+            @click="showMore = !showMore"
+            class="w-9 h-9 flex items-center justify-center rounded-md bg-white/10 border border-white/20 hover:bg-white/20 active:scale-95 transition"
+          >
+            <span x-show="!showMore" class="text-lg leading-none text-white">+</span>
+            <span x-show="showMore" class="text-lg leading-none text-white">−</span>
+          </button>
+        </div>
+        <div x-show="showMore" x-transition class="space-y-4">
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Eine persönliche Portfolio-Seite zur Präsentation meiner Projekte. Dunkles, modernes Design und dezente Animationen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-black text-gray-500 py-16 border-t border-neutral-800 mt-24"
+        x-data="animatedFooterTitle()" 
+        x-init="observeFooter($el)">
+
+    <div class="max-w-5xl mx-auto px-6 flex flex-col items-center space-y-6">
+
+      <h2 class="font-mono text-xs sm:text-sm tracking-widest select-none flex flex-wrap justify-center text-gray-400 uppercase text-center">
+        <template x-for="(letter, index) in footerText.split('')" :key="index">
+          <span 
+            x-text="letter"
+            x-show="visible[index]"
+            x-transition:enter="transition ease-out duration-400"
+            x-transition:enter-start="opacity-0 translate-y-1"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            class="inline-block"
+          ></span>
+        </template>
+      </h2>
+
+      <nav class="flex flex-wrap justify-center gap-6 text-xs font-light tracking-wide uppercase">
+        <a href="#" class="text-gray-400 hover:text-white transition">Impressum</a>
+        <a href="#" class="text-gray-400 hover:text-white transition">Datenschutz</a>
+      </nav>
+
+    </div>
+  </footer>
+
+  <!-- Alpine.js Animationen -->
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('animatedTitle', () => ({
+        title: '19thara',
+        visible: [],
+        init() {
+          const letters = this.title.split('');
+          this.visible = letters.map(() => false);
+          letters.forEach((_, i) => {
+            setTimeout(() => {
+              this.visible[i] = true;
+            }, i * 100);
+          });
+        }
+      }));
+
+      Alpine.data('animatedFooterTitle', () => ({
+        footerText: '© 19thara.com. Alle Rechte vorbehalten',
+        visible: [],
+        animationStarted: false,
+        init() {
+          this.visible = this.footerText.split('').map(() => false);
+        },
+        observeFooter(el) {
+          const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && !this.animationStarted) {
+                this.animationStarted = true;
+                this.footerText.split('').forEach((_, i) => {
+                  setTimeout(() => {
+                    this.visible[i] = true;
+                  }, i * 60);
+                });
+                observer.unobserve(el);
+              }
+            });
+          }, { root: null, threshold: 0.1 });
+          observer.observe(el);
+        }
+      }));
+
+      Alpine.data('fadeInOnScroll', (delay = 0) => ({
+        visible: false,
+        observe(el) {
+          const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  this.visible = true;
+                }, delay);
+                observer.unobserve(el);
+              }
+            });
+          }, { threshold: 0.50 });
+          observer.observe(el);
+        }
+      }));
+    });
+  </script>
+</body>
+</html>
